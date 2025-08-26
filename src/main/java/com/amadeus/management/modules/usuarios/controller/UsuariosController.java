@@ -1,8 +1,8 @@
-package com.amadeus.management.usuarios.controller;
+package com.amadeus.management.modules.usuarios.controller;
 
-import com.amadeus.management.usuarios.dto.UsuarioCreateRequest;
-import com.amadeus.management.usuarios.dto.UsuarioResponse;
-import com.amadeus.management.usuarios.service.UsuariosService;
+import com.amadeus.management.modules.usuarios.dto.UsuarioCreateRequest;
+import com.amadeus.management.modules.usuarios.dto.UsuarioResponse;
+import com.amadeus.management.modules.usuarios.service.UsuariosService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

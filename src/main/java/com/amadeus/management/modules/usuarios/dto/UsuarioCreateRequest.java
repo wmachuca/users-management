@@ -1,4 +1,4 @@
-package com.amadeus.management.usuarios.dto;
+package com.amadeus.management.modules.usuarios.dto;
 
 public record UsuarioCreateRequest(
         String correo,

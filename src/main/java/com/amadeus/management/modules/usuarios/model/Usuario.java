@@ -1,4 +1,4 @@
-package com.amadeus.management.usuarios.model;
+package com.amadeus.management.modules.usuarios.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;

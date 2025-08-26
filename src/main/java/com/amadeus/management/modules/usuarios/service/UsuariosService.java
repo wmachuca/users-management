@@ -1,9 +1,9 @@
-package com.amadeus.management.usuarios.service;
+package com.amadeus.management.modules.usuarios.service;
 
-import com.amadeus.management.usuarios.dto.UsuarioCreateRequest;
-import com.amadeus.management.usuarios.dto.UsuarioResponse;
-import com.amadeus.management.usuarios.model.Usuario;
-import com.amadeus.management.usuarios.repository.UsuarioRepository;
+import com.amadeus.management.modules.usuarios.dto.UsuarioCreateRequest;
+import com.amadeus.management.modules.usuarios.dto.UsuarioResponse;
+import com.amadeus.management.modules.usuarios.model.Usuario;
+import com.amadeus.management.modules.usuarios.repository.UsuarioRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

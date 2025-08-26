@@ -28,10 +28,10 @@ public class OpenApiConfig {
     }
 
     @Bean
-    public GroupedOpenApi usuariosGroup() {
+    public GroupedOpenApi modulesGroup() {
         return GroupedOpenApi.builder()
-                .group("usuarios")
-                .packagesToScan("com.amadeus.management.usuarios.controller")
+                .group("modules")
+                .packagesToScan("com.amadeus.management.modules")
                 .build();
     }
 }
