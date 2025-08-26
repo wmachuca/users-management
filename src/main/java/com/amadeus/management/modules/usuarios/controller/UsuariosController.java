@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuariosController {
@@ -23,5 +25,11 @@ public class UsuariosController {
     public ResponseEntity<UsuarioResponse> crear(@RequestBody UsuarioCreateRequest request) {
         UsuarioResponse response = usuariosService.crear(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping
+    @Operation(summary = "Listar usuarios", description = "Obtiene el listado de usuarios")
+    public ResponseEntity<List<UsuarioResponse>> listar() {
+        return ResponseEntity.ok(usuariosService.listar());
     }
 }

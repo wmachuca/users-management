@@ -9,6 +9,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UsuariosService {
     private final UsuarioRepository repository;
@@ -41,5 +44,20 @@ public class UsuariosService {
                 saved.getFechaCreacion(),
                 saved.getFechaActualizacion()
         );
+    }
+
+    @Transactional(readOnly = true)
+    public List<UsuarioResponse> listar() {
+        return repository.findAll().stream()
+                .map(u -> new UsuarioResponse(
+                        u.getId(),
+                        u.getCorreo(),
+                        u.getTelefono(),
+                        u.getNombres(),
+                        u.getApellidos(),
+                        u.getFechaCreacion(),
+                        u.getFechaActualizacion()
+                ))
+                .collect(Collectors.toList());
     }
 }
