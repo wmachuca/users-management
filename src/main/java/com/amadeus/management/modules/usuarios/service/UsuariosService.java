@@ -100,4 +100,12 @@ public class UsuariosService {
                 saved.getFechaActualizacion()
         );
     }
+
+    @Transactional
+    public void borrar(UUID id) {
+        if (!repository.existsById(id)) {
+            throw new IllegalArgumentException("Usuario no encontrado");
+        }
+        repository.deleteById(id);
+    }
 }

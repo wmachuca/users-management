@@ -47,4 +47,15 @@ public class UsuariosController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Borrar usuario", description = "Elimina un usuario existente por su id")
+    public ResponseEntity<?> borrar(@PathVariable("id") UUID id) {
+        try {
+            usuariosService.borrar(id);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }
