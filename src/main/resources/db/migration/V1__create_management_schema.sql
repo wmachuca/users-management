@@ -5,9 +5,9 @@ CREATE EXTENSION IF NOT EXISTS pgcrypto;
 CREATE TABLE IF NOT EXISTS test.users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   correo VARCHAR(255) NOT NULL,
-  telefono VARCHAR(50) NOT NULL,
+  telefono VARCHAR(50),
   nombres VARCHAR(255) NOT NULL,
-  apellidos VARCHAR(255) NOT NULL,
+  apellidos VARCHAR(255),
   contrasena VARCHAR(255) NOT NULL,
   fecha_creacion TIMESTAMP NOT NULL DEFAULT NOW(),
   fecha_actualizacion TIMESTAMP NOT NULL DEFAULT NOW()
