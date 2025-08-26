@@ -27,10 +27,10 @@ public class Usuario {
     @Column(name = "contrasena", nullable = false, length = 255)
     private String contrasena;
 
-    @Column(name = "fecha_creacion", nullable = false)
+    @Column(name = "fecha_creacion", nullable = false, updatable = false, insertable = false)
     private LocalDateTime fechaCreacion;
 
-    @Column(name = "fecha_actualizacion", nullable = false)
+    @Column(name = "fecha_actualizacion", nullable = false, insertable = false)
     private LocalDateTime fechaActualizacion;
 
     public UUID getId() { return id; }
