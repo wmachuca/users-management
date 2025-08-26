@@ -1,5 +1,7 @@
 package com.amadeus.management.modules.auth.service;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
@@ -31,5 +33,17 @@ public class JwtService {
 
     public long getExpirationSeconds() {
         return expirationSeconds;
+    }
+
+    public Claims validateAndGetClaims(String token) {
+        Jws<Claims> parsed = Jwts.parser()
+                .verifyWith(secretKey)
+                .build()
+                .parseSignedClaims(token);
+        return parsed.getPayload();
+    }
+
+    public String getSubject(String token) {
+        return validateAndGetClaims(token).getSubject();
     }
 }

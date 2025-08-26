@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import io.swagger.v3.oas.annotations.Operation;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
+    @Operation(summary = "Login", description = "Autentica al usuario y retorna un token JWT", security = {})
     public ResponseEntity<?> login(@RequestBody LoginRequest request) {
         return usuarioRepository.findByCorreo(request.correo())
                 .filter(u -> passwordEncoder.matches(request.contrasena(), u.getContrasena()))
